@@ -8,3 +8,4 @@ build/bin*
 */*.so
 *.so
 c_cpp_properties.json
+**/*.root

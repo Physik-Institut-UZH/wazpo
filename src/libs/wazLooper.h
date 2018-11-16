@@ -1,10 +1,15 @@
 #ifndef WAZAAAAAA
 #define WAZAAAAAA
 
-#include "branchHolder.h"
+#include <vector>
+
 #include "TString.h"
 #include "TTree.h"
 #include "TFile.h"
+
+#include "branchHolder.h"
+#include "addOn.h"
+
 
 using namespace std;
 
@@ -21,6 +26,7 @@ class wazLooper :public branchHolder {
     TTree *out_tree;
     TFile *out_file;
     float test_branch;
+    addOn a;
 };
 
 #endif

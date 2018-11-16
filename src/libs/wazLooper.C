@@ -1,7 +1,7 @@
 #include "wazLooper.h"
 
 
-wazLooper::wazLooper(TTree *loadedTree) : branchHolder(loadedTree) {
+wazLooper::wazLooper(TTree *loadedTree) : branchHolder(loadedTree), a(this) {
 
     fChain->Print();
     
@@ -10,7 +10,9 @@ wazLooper::wazLooper(TTree *loadedTree) : branchHolder(loadedTree) {
     out_tree = fChain->CloneTree();
 
     out_tree->Print();
-    
+
+    //addOns.clear();
+    //addOns.push_back(new addOn(this));
 }
 
 wazLooper::~wazLooper(){
@@ -21,6 +23,8 @@ void wazLooper::initializeAddOns(){
     out_tree->SetBranchStatus("*",0);
     test_branch = 42;
     out_tree->Branch("test_branch",&test_branch,"test_branch/F");
+
+    
 
 }
 
@@ -42,7 +46,9 @@ void wazLooper::Loop(){
         nbytes += nb;
 
         // Here we do our magic
+        a.run();
         out_tree->Fill();
+        
 
     }
 

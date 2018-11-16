@@ -4,7 +4,7 @@ Warp Zero Postprocessing (with c++)
 
 # Requirements
 
- - **gcc >= ? ** (it works with 8.2)
+ - **gcc >=8.2** 
  - **python** and **pip**
  - **cmake>=3.9**
 

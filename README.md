@@ -4,11 +4,11 @@ Warp Zero Postprocessing (with c++)
 
 # Requirements
 
- - **gcc >=8.2** 
+ - **gcc >=4.8.1** (for sure works with 8.2.0)
  - **python** and **pip**
  - **cmake>=3.9**
 
-# installation 
+# Installation 
 
 Install the c++ package manager:
 ```bash
@@ -26,4 +26,10 @@ From now on you can keep compile it (from the 'build' directory) via:
  - **make**: normal copile
  - **make clean**: remove only binaries
  - **source clean.sh**: hardcore clean up, removes the whole installation (you need to re-run 'source install.sh after this)
+
+
+# Usage
+
+# What if we modify/add/remove processed tree branches?
+
 

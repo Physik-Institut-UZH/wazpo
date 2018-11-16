@@ -1,0 +1,5 @@
+[requires]
+cmake_installer/3.12.1@conan/stable
+
+[generators]
+virtualenv

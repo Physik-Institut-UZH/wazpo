@@ -1,0 +1,9 @@
+conanbuildinfo.cmake  
+conanbuildinfo.txt  
+conaninfo.txt
+build/CMake*
+build/Make*
+build/cmake*
+build/bin*  
+*/*.so
+*.so

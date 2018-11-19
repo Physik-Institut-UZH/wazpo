@@ -59,7 +59,7 @@ This class must contain the address of the branches that you want to add, it can
 You find a definition of all branches [here](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/libs/branchHolder.h).
 
 Of course it's not enough ;), this is c++ so you need to hardcode the list of addons, 
-go to the file **wazLooper.cpp** and look for the keyword **ADD_ON_MODIFY_HERE**, and just do as it says in the comments there (you need to modify in two points of the code).
+go to the file [wazLooper.cpp](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/libs/wazLooper.cpp) and look for the keyword **ADD_ON_MODIFY_HERE**, and just do as it says in the comments there (you need to modify in two points of the code).
 
 
 ## How the configuration file works

@@ -44,6 +44,12 @@ From now on you can keep compile it (from the 'build' directory) via:
 Usage: wazpo --config <config_file_path> --file <input_root_file_path> --out <output_root_file_path>
 ```
 
+There is a **Test** config file that you can run to see how it works, from the main dir do:
+
+```bash
+wazpo --config configs/test.yaml --file ../mock_data/processed_kryton_test_181108.root -o test.root
+```
+
 ## How to write an addon
 
 The add on class must inherit from the virtual prototype **addOn** class, you find an example [here](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/libs/add_ons/add_posrec.hpp)
@@ -51,6 +57,9 @@ on how to do it, I suggest you to just copy the file completely and modify only 
 The function **init** gets call at initialization time (before the loop on events), while the function **apply** gets called once per event.
 This class must contain the address of the branches that you want to add, it can retrieve all the other branches values (for that event) using the pointer to the **looper**.
 You find a definition of all branches [here](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/libs/branchHolder.h).
+
+Of course it's not enough ;), this is c++ so you need to hardcode the list of addons, 
+go to the file **wazLooper.cpp** and look for the keyword **ADD_ON_MODIFY_HERE**, and just do as it says in the comments there (you need to modify in two points of the code).
 
 
 ## How the configuration file works

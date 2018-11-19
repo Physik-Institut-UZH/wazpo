@@ -1,5 +1,6 @@
 #include "wazLooper.h"
 #include "add_ons/add_posrec.hpp"  // this must be here, because of mixed includes
+                                    // <---- add other includes for add on here ADD_ON_MODIFY_HERE
 
 wazLooper::wazLooper(TTree *loadedTree, TString configfile, TString outpath) : branchHolder(loadedTree){
 
@@ -28,6 +29,8 @@ void wazLooper::initializeAddons(){
     // couldn't come up with something less verbose than this...
     if( addOnListContains("posrec")) 
         addons.push_back( new add_posrec(this,  getConfigFor("posrec")) );
+
+        // <--- Add same syntax as above for your addon here  ADD_ON_MODIFY_HERE  
 
     // turning off all default branches
     out_tree->SetBranchStatus("*",0);

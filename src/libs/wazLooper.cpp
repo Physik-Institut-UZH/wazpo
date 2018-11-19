@@ -1,5 +1,5 @@
 #include "wazLooper.h"
-#include "add_ons/add_posrec.hpp"  // this must be here, because of mixed includes
+#include "../add_ons/add_posrec.hpp"  // this must be here, because of mixed includes
                                     // <---- add other includes for add on here ADD_ON_MODIFY_HERE
 
 wazLooper::wazLooper(TTree *loadedTree, TString configfile, TString outpath) : branchHolder(loadedTree){

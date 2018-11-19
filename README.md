@@ -52,7 +52,7 @@ wazpo --config configs/test.yaml --file ../mock_data/processed_kryton_test_18110
 
 ## How to write an addon
 
-The add on class must inherit from the virtual prototype **addOn** class, you find an example [here](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/libs/add_ons/add_posrec.hpp)
+The add on class must inherit from the virtual prototype **addOn** class, you find an example [here](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/add_ons/add_posrec.hpp)
 on how to do it, I suggest you to just copy the file completely and modify only names and the **init** and **apply** function. 
 The function **init** gets call at initialization time (before the loop on events), while the function **apply** gets called once per event.
 This class must contain the address of the branches that you want to add, it can retrieve all the other branches values (for that event) using the pointer to the **looper**.

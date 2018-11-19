@@ -1,5 +1,5 @@
-#include "../addon.h"
-#include "../wazLooper.h"  
+#include "../libs/addon.h"
+#include "../libs/wazLooper.h"  
 
 #ifndef ADDPOSREC
 #define ADDPOSREC

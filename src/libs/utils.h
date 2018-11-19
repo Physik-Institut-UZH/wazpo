@@ -1,3 +1,5 @@
+#ifndef UTILS
+#define UTILS
 
 #include <iostream>
 
@@ -10,3 +12,8 @@ void logo(){
          << "\n\t ------------------------------------------\n\n" << endl;
 
 }
+
+
+
+
+#endif

@@ -16,14 +16,17 @@ conan_basic_setup()
 include_directories(src)
 
 #Get all source file and saves it in a list called SOURCES
-file(GLOB SOURCES "src/libs/*.C")
+file(GLOB SOURCES "src/libs/*.cpp" "src/libs/add_ons/*.cpp")
+#file(GLOB ADDONS "src/libs/add_ons/*.cpp")
 
 # Producing a shared library with branchHolder
-add_library(wazlibs SHARED ${SOURCES})
-target_link_libraries( wazlibs ${ROOT_LIBRARIES}) # link the branch holder to ROOT
+add_library(wazlibs SHARED ${SOURCES} )
+#add_library(addonslibs SHARED ${ADDONS} )
+target_link_libraries( wazlibs ${ROOT_LIBRARIES} ${CONAN_LIBS} ) # link the branch holder to ROOT
 
 
 add_executable(wazpo src/wazpo.cpp)
-target_link_libraries(wazpo ${CONAN_LIBS} wazlibs)
+target_link_libraries(wazpo wazlibs)
+#target_link_libraries(wazpo ${CONAN_LIBS} wazlibs)
 target_include_directories(wazpo PUBLIC src/libs)
 

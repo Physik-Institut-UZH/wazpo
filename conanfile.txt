@@ -1,5 +1,6 @@
 [requires]
 yaml-cpp/0.6.2@bincrafters/stable
+argh/1.2.1@adishavit/stable
 
 [generators]
 cmake

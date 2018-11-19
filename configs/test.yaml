@@ -1,0 +1,16 @@
+#  test config file
+# syntax @ https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+# decoder syntax @ https://github.com/jbeder/yaml-cpp/wiki/Tutorial
+
+addons:
+  - posrec
+  - s2_tot
+  - bullshit 
+
+posrec:
+  treshold: 42
+  exclude_pmt: [0,2,3]
+
+bulshit:
+  hello: "world"
+

@@ -2,6 +2,15 @@
 Warp Zero Postprocessing (with c++)
 
 
+This library takes a root file and a YAML configuration file as input and steer as output a clone of 
+the input root file with additional branches. It is just an outer shell, so with a few tweak can be used for any 
+input root file (not only warp-zero). 
+
+
+The working philosophy is with "addons", you write and register addons classes to the "wazlooper" and they get called 
+during a loop over entries. The "addons" classes must then define only two functions: an **"init"** and a **apply**.
+
+
 # Requirements
 
  - **ROOT >=6.0.4** (for sure works with 6.14/04 )
@@ -30,6 +39,26 @@ From now on you can keep compile it (from the 'build' directory) via:
 
 
 # Usage
+
+```bash
+Usage: wazpo --config <config_file_path> --file <input_root_file_path> --out <output_root_file_path>
+```
+
+## How to write an addon
+
+The add on class must inherit from the virtual prototype **addOn** class, you find an example [here](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/libs/add_ons/add_posrec.hpp)
+on how to do it, I suggest you to just copy the file completely and modify only names and the **init** and **apply** function. 
+The function **init** gets call at initialization time (before the loop on events), while the function **apply** gets called once per event.
+This class must contain the address of the branches that you want to add, it can retrieve all the other branches values (for that event) using the pointer to the **looper**.
+You find a definition of all branches [here](https://github.com/Physik-Institut-UZH/wazpo/blob/master/src/libs/branchHolder.h).
+
+
+## How the configuration file works
+
+Wazpo uses a common YAML configuration file syntax, [info on YAML syntax here](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html),
+the files are read with a c++ tool, of which you find the syntax [here](https://github.com/jbeder/yaml-cpp/wiki/Tutorial). You can obviously leave this feature blank.
+
+
 
 # What if we modify/add/remove processed tree branches?
 

@@ -75,6 +75,34 @@ void wazLooper::Loop(){
 
 }
 
+void wazLooper::analyzeEvent(int event){
+
+    setPlotMode(event);
+
+    if (fChain == 0)
+        return;
+    Long64_t ientry = LoadTree(event);
+    if (ientry < 0){
+        cout << "Error: max entry is: " << fChain->GetEntries() << endl;
+        return;
+    }
+
+    TRandom rambo;
+    rambo.SetSeed(0);
+    while(1){
+    event = (int) rambo.Uniform(fChain->GetEntries());
+    cout << "Running on event " << event << endl; 
+    fChain->GetEntry(event);
+    out_tree->GetEntry(event);
+
+    // Here we do our magic
+    for(unsigned int k =0; k< addons.size(); k++){
+        addons[k]->apply();
+    }
+    int status = system( "gwenview test.png" );
+    }
+}
+
 void wazLooper::write(){
     
     out_file->cd();

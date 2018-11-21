@@ -17,13 +17,14 @@ int main(int argc, char** argv)
     logo();
 
     argh::parser cmdl;
-    cmdl.add_params({ "--file", "--config","-h", "-o"});
+    cmdl.add_params({ "--file", "--config","-h", "-o","--plot"});
     cmdl.parse(argc, argv);
 
     if( cmdl[{"-h","--help"}] ) {
         cout << "Usage: \n wazpo --config <config_file_path> --file <root_file_path> --out <root_file_path>\n\n" << endl;
         return 0;
     }
+    
 
     TString filepath = cmdl("file").str();
     TString configpath = cmdl("config").str();
@@ -45,7 +46,13 @@ int main(int argc, char** argv)
     looper.initializeAddons();
     
     // runs over all entries, reading old tree, computing add-ons, filling new tree
-    looper.Loop();
+    if(cmdl("plot").str() != "") {
+        int event = 0;
+        cmdl("plot") >> event; 
+        cout << "Analyzing event "  << event << endl; 
+        looper.analyzeEvent(event);
+    }
+    else looper.Loop();
 
     // write new file with new tree to disk
     looper.write();
